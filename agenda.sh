@@ -34,13 +34,16 @@ case $op in
 
 	b)
 		read -p "Introduce el DNI que desea buscar: " dn
-		d=$(grep "^$dn:" agenda.txt)
-
-		if [ -z "$d" ]; then
-			echo "No existe ninguna persona con ese DNI"
+		if [ ${$dn} == "9" ]; then	
+			d=$(grep "^$dn:" agenda.txt)
+			if [ -z "$d" ]; then
+				echo "No existe ninguna persona con ese DNI"
+			else
+				IFS=":" read -r dn n a c <<< "$d"
+				echo "La persona con DNI número $dn es: $n $a, y vive en $c"
+			fi
 		else
-			IFS=":" read -r dn n a c <<< "$d"
-			echo "La persona con DNI número $dn es: $n $a, y vive en $c"
+			echo "El DNI tiene un formato invalido"
 		fi
 		sleep 2
 		;;
@@ -78,5 +81,6 @@ case $op in
 esac
 
 done
+
 
 
