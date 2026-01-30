@@ -34,7 +34,7 @@ case $op in
 
 	b)
 		read -p "Introduce el DNI que desea buscar: " dn
-		if [ ${$dn} == "9" ]; then	
+		if [ ${#dn} == "9" ]; then	
 			d=$(grep "^$dn:" agenda.txt)
 			if [ -z "$d" ]; then
 				echo "No existe ninguna persona con ese DNI"
@@ -81,6 +81,7 @@ case $op in
 esac
 
 done
+
 
 
 
