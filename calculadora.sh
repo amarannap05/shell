@@ -13,11 +13,11 @@ if [ -e "$1" ]; then
     exit 1
 fi
 
-FICHERO_SALIDA="$1"
-MAX_OPERACIONES="$2"
+FS="$1"
+MO="$2"
 CONTADOR=0
 
-while [ $CONTADOR -lt $MAX_OPERACIONES ]; do
+while [ $CONTADOR -lt $MO ]; do
     echo "----------------------------------------"
     echo "Operación Op1 Op2:"
     read OPERACION OP1 OP2
@@ -67,7 +67,7 @@ while [ $CONTADOR -lt $MAX_OPERACIONES ]; do
             ;;
     esac
     
-    echo "$OPERACION_MAYUS $OP1 $OP2" >> "$FICHERO_SALIDA"
+    echo "$OPERACION_MAYUS $OP1 $OP2" >> "$FS"
     
     CONTADOR=$((CONTADOR + 1))
     
@@ -76,8 +76,7 @@ while [ $CONTADOR -lt $MAX_OPERACIONES ]; do
 done
 
 if [ -f "$FICHERO_SALIDA" ]; then
-    # Obtener ruta completa
-    RUTA_COMPLETA=$(realpath "$FICHERO_SALIDA")
+    RUTA_COMPLETA=$(realpath "$FS")
     echo "Ruta completa del fichero de salida:"
     echo "$RUTA_COMPLETA"
     echo ""
