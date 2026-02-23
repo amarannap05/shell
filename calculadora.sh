@@ -1,5 +1,6 @@
 #!/bin/bash
-#
+# Aitor Maraña Pérez
+# Fecha 17/02t/2026
 
 if [ $# -ne 2 ]; then
     echo "ERROR: Número de parámetros incorrecto"
