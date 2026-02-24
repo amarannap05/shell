@@ -3,7 +3,6 @@
 # Fecha 21/02/2026
 if [ $USER != "root" ]; then
     echo "Usted no es usuario root"
-    break
 else
     UID_REF=1000
     if [ $# -eq 1 ]; then
